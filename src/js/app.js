@@ -74,7 +74,7 @@ function cerrarModal() {
     },500);
 }
 
-function resaltarEnlace(){
+function resaltarEnlace(){  //funcio de scroll
     document.addEventListener('scroll', function(){
         const sections = document.querySelectorAll('section')
         const navLinks = document.querySelectorAll('.navegacion-principal a')
