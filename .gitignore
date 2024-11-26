@@ -1,6 +1,8 @@
-gulpfile.js
-package.json
-package-lock.json
+# Ignorar dependencias instaladas
 node_modules/
 
+# Ignorar archivos de logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
