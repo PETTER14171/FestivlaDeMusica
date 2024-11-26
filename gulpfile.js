@@ -24,4 +24,10 @@ export function dev() {
     watch('src/js/**/*.js', js);  // Observa los cambios y vuelve a compilar
 }
 
+// Tarea de construcción para producción
+export function build(done) {
+    series(js, css)(); // Ejecuta las tareas de JS y CSS sin observación
+    done();
+}
+
 export default series(js, css, dev)
