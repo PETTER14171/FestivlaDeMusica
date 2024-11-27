@@ -23,9 +23,12 @@ function crearGaleria(){
     const galeria = document.querySelector('.galeria-imagen')
 
     for(let i  = 1; i <= CANTIDAD_IMAGENES; i++){
-        const imagen = document.createElement('IMG')
-        imagen.src = `src/img/gallery/full/${i}.jpg`
-        imagen.alt = 'Imagen Galeria'
+        const imagen = document.createElement('PICTURE')
+        imagen.innerHTML = `
+        <source srcset="build/img/gallery/thumb/${i}.avif" type="image/avif">
+        <source srcset="build/img/gallery/thumb/${i}.webp" type="image/webp">
+        <img loading="lazy" width="200" height="300" src="build/img/gallery/thumb/${i}.jpg" alt="imagen galeria">
+    `;
 
         //Event Hendler
         imagen.onclick = function(){
@@ -33,14 +36,17 @@ function crearGaleria(){
         }
 
         galeria.appendChild(imagen)
-    }}
-
+    }
+}
 
 function mostrarImagen(i){
 
-    const imagen = document.createElement('IMG')
-    imagen.src = `src/img/gallery/full/${i}.jpg`
-    imagen.alt = 'Imagen Galeria'
+    const imagen = document.createElement('PICTURE')
+    imagen.innerHTML = `
+    <source srcset="build/img/gallery/full/${i}.avif" type="image/avif">
+    <source srcset="build/img/gallery/full/${i}.webp" type="image/webp">
+    <img loading="lazy" width="200" height="300" src="build/img/gallery/full/${i}.jpg" alt="imagen galeria">
+`;
 
 
     //Generar Modal
@@ -74,7 +80,7 @@ function cerrarModal() {
     },500);
 }
 
-function resaltarEnlace(){
+function resaltarEnlace(){  //funcio de scroll
     document.addEventListener('scroll', function(){
         const sections = document.querySelectorAll('section')
         const navLinks = document.querySelectorAll('.navegacion-principal a')
